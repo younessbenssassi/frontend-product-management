@@ -1,14 +1,14 @@
-import profileResource from "@/resources/profile.resource";
-import { showSuccessMessage, showErrorMessage, handleErrorsFormat } from "@/helpers/ControllerHelper";
+import dashboardResource from "@/resources/dashboard.resource";
+import { showErrorMessage, handleErrorsFormat } from "@/helpers/ControllerHelper";
 
-class ProfileController {
-    async updateProfile(payload){
+class DashboardController {
+    async getDashboardContent(){
         try {
-            const response = await profileResource.updateProfile(payload);
+            const response = await dashboardResource.getDashboardContent();
             if (response.data?.status){
-                showSuccessMessage(response.data.message);  
                 return {
                     status: response.data.status,
+                    content: response.data.content,
                 };
             }
             else{
@@ -22,4 +22,4 @@ class ProfileController {
         }
     }
 }
-export default ProfileController;
+export default DashboardController;

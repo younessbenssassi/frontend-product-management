@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import DefaultLayout from "@/components/Layouts/DefaultLayout";
+import DefaultLayout from "@/components/layouts/DefaultLayout";
 export default {
     name: 'App',
     components:{

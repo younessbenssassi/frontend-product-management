@@ -18,8 +18,8 @@
 </template>
 
 <script>
-import DefaultHeader from "@/components/Layouts/Headers/DefaultHeader";
-import DefaultNavBar from "@/components/Layouts/NavBars/DefaultNavBar";
+import DefaultHeader from "@/components/layouts/Headers/DefaultHeader";
+import DefaultNavBar from "@/components/layouts/NavBars/DefaultNavBar";
 import {mapState} from "vuex";
 export default {
     name: "DefaultLayout",

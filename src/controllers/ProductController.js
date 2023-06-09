@@ -1,15 +1,14 @@
-import adminResource from "@/resources/admin.resource";
-import { showSuccessMessage, showErrorMessage, handleErrorsFormat } from "@/helpers/ControllerHelper";
+import productResource from "@/resources/product.resource";
+import {showSuccessMessage, showErrorMessage, handleErrorsFormat} from "@/helpers/ControllerHelper";
 
-class AdminController {
-    async getAdmins(params){
+class ProductController {
+    async getProducts(params){
         try {
-            const response = await adminResource.getAdmins(params);
+            const response = await productResource.getProducts(params);
             if (response.data?.status){
-                //showSuccessMessage(response.data.message);  
                 return {
                     status: response.data.status,
-                    admins: response.data.admins,
+                    products: response.data.products,
                 };
             }
             else{
@@ -23,14 +22,14 @@ class AdminController {
             console.error(error);
         }
     }
-    async getAdmin(hash){
+    async getProduct(hash){
         try {
-            const response = await adminResource.getAdmin(hash);
+            const response = await productResource.getProduct(hash);
             if (response.data?.status){
                 showSuccessMessage(response.data.message);  
                 return {
                     status: response.data.status,
-                    admin: response.data.admin,
+                    product: response.data.product,
                 };
             }
             else{
@@ -43,14 +42,14 @@ class AdminController {
             console.error(error);
         }
     }
-    async createAdmin(payload){
+    async createProduct(payload){
         try {
-            const response = await adminResource.createAdmin(payload);
+            const response = await productResource.createProduct(payload);
             if (response.data?.status){
                 showSuccessMessage(response.data.message);  
                 return {
                     status: response.data.status,
-                    admin: response.data.admin,
+                    product: response.data.product,
                 };
             }
             else{
@@ -63,14 +62,14 @@ class AdminController {
             console.error(error);
         }
     }
-    async updateAdmin(payload,hash){
+    async updateProduct(payload,hash){
         try {
-            let response = await adminResource.updateAdmin(payload,hash);
+            let response = await productResource.updateProduct(payload,hash);
             if (response.data?.status){
                 showSuccessMessage(response.data.message);  
                 return {
                     status: response.data.status,
-                    admin: response.data.admin,
+                    product: response.data.product,
                 };
             }
             else{
@@ -83,9 +82,9 @@ class AdminController {
             console.error(error);
         }
     }
-    async deleteAdmin(hash){
+    async deleteProduct(hash){
         try {
-            const response = await adminResource.deleteAdmin(hash);
+            const response = await productResource.deleteProduct(hash);
             if (response.data?.status)
                 showSuccessMessage(response.data.message);  
             else
@@ -100,4 +99,4 @@ class AdminController {
     }
 
 }
-export default AdminController;
+export default ProductController;

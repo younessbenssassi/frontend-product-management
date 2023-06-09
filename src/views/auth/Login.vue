@@ -18,7 +18,13 @@
                                     id="email"
                                     placeholder="Email"
                                 >
-                                <p class="text-danger" v-if="$v.credential.email.$error">Please enter a valid email</p>
+                                <p
+                                    v-if="$v.credential.email.$error"
+                                    class="text-danger"
+
+                                >
+                                    Please enter a valid email
+                                </p>
                             </div>
                             <div class="form-group">
                                 <input
@@ -28,7 +34,12 @@
                                     id="password"
                                     placeholder="Password"
                                 >
-                                <p class="text-danger" v-if="$v.credential.password.$error">Please enter a valid password</p>
+                                <p
+                                    v-if="$v.credential.password.$error"
+                                    class="text-danger"
+                                >
+                                    Please enter a valid password
+                                </p>
                             </div>
                             <div class="mt-3">
                                 <a
@@ -43,7 +54,8 @@
                                 <a href="#" class="auth-link text-black">Forgot password?</a>
                             </div>
                             <div class="text-center mt-4 font-weight-light">
-                                Don't have an account? <a href="register.html" class="text-primary">Create</a>
+                                Don't have an account?
+                                <router-link :to="{ name: 'Register'}">Create</router-link>
                             </div>
                         </form>
                     </div>
@@ -64,8 +76,14 @@ export default {
     validations(){
         return{
             credential:{
-                email: { email,required },
-                password: { required,min: minLength(8) }
+                email: {
+                    email,
+                    required
+                },
+                password: {
+                    required,
+                    min: minLength(8)
+                }
             }
         }
     },

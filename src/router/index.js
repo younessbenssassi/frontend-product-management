@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import store from '@/store';
 import auth from './modules/auth';
 import dashboard from './modules/dashboard';
+import settings from './modules/settings';
 
 
 Vue.use(VueRouter);
@@ -11,6 +12,7 @@ Vue.use(VueRouter);
 const routes = [
     ...auth,
     ...dashboard,
+    ...settings,
 ];
 
 const router = new VueRouter({
